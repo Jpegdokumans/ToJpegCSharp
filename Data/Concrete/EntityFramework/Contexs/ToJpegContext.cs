@@ -7,11 +7,11 @@ using System.Text;
 
 namespace DataAccess.Concrete.EntityFramework.Contexs
 {
-    public class ZeynepContext : DbContext
+    public class ToJpegContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Zeynep;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=ToJpeg;Trusted_Connection=true");
         }
 
         public DbSet<OperationClaim> OperationClaims { get; set; }

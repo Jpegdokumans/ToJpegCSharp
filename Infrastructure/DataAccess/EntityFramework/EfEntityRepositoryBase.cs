@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.DataAccess.EntityFramework
 {
+
+    //Repository Design Pattern 
+    //Temel CRUD (CREATE,READ,UPDATE,DELETE) SQL temel işlemleri
     public class EfEntityRepositoryBase<TEntity, TContext> : IEntityRepository<TEntity>
         where TEntity : class, IEntity, new()
         where TContext : DbContext, new()

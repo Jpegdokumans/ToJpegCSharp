@@ -10,11 +10,11 @@ using System.Linq;
 
 namespace DataAccess.Concrete.EntityFramework
 {
-    public class EfUserDal : EfEntityRepositoryBase<User, ZeynepContext>, IUserDal
+    public class EfUserDal : EfEntityRepositoryBase<User, ToJpegContext>, IUserDal
     {
         public async Task<List<OperationClaim>> GetClaimsAsync(User user)
         {
-            using (var context = new ZeynepContext())
+            using (var context = new ToJpegContext())
             {
                 var result = from operationClaim in context.OperationClaims
                              join userOperationClaim in context.UserOperationClaims

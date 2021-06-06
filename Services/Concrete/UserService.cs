@@ -1,4 +1,5 @@
 ﻿using DataAccess.Interfaces;
+using Infrastructure.Aspects.Autofac.Caching;
 using Infrastructure.Entities.Concrete;
 using Services.Interfaces;
 using System;
@@ -14,7 +15,7 @@ namespace Services.Concrete
         public UserService(IUserDal userDal)
         {
             _userDal = userDal;
-        }
+        }       
         public async Task AddAsync(User user)
         {
             await _userDal.AddAsync(user);
