@@ -10,6 +10,6 @@ namespace Services.Models
     {
         public string Name { get; set; }
         public byte[] Photo { get; set; }
-        public CompressionLevel CompressionLevel { get; set; }
+        public string CompressionLevel { get; set; }
     }
 }

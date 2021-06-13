@@ -32,10 +32,16 @@ namespace WebAPI.Controllers
             var result = await _authService.CreateAccessTokenAsync(userToLogin.Data);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
 
             return BadRequest(result.Message);
+        }
+
+        [HttpGet("getName")]
+        public string GetName()
+        {
+            return "Hello";
         }
 
         [HttpPost("register")]
@@ -51,10 +57,10 @@ namespace WebAPI.Controllers
             var result = await _authService.CreateAccessTokenAsync(registerResult.Data);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
 
-            return BadRequest(result.Message);
+            return BadRequest(result);
         }
     }
 }

@@ -7,6 +7,7 @@ using Services.Interfaces;
 using Services.Models;
 using System;
 using System.Collections.Generic;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,12 +26,26 @@ namespace Services.Concrete
             var photo = new Photo
             {
                 Name = model.Name,
-                Jpeg = JpegHelper.JpegCompress(model.Photo,model.CompressionLevel)
+                Jpeg = JpegHelper.JpegCompress(model.Photo, ParseCompressionLevel(model.CompressionLevel))
             };
             await _photoDal.AddAsync(photo);
             return new SuccessResult(Messages.AddedPhoto);
         }
-
+        private CompressionLevel ParseCompressionLevel(string compressionLevel)
+        {
+            if (compressionLevel.Equals("optimal",StringComparison.OrdinalIgnoreCase))
+            {
+                return CompressionLevel.Optimal;
+            }
+            else if (compressionLevel.Equals("fastest",StringComparison.OrdinalIgnoreCase))
+            {
+                return CompressionLevel.Fastest;
+            }
+            else
+            {
+                return CompressionLevel.NoCompression;
+            }
+        }
         public async Task<DataResult<IList<Photo>>> GetAllAsync()
         {
             var data = await _photoDal.GetListAsync();

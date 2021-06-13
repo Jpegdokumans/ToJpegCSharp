@@ -18,5 +18,7 @@ namespace Services.Constants
         public static string AddedPhoto = "Photo Başarıyla Eklendi";
 
         public static string SuccessfulList = "Data Listeme Başarılı";
+
+        public static string Successful = "İşlem Başarılı";
     }
 }
